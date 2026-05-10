@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Under maintenance — social.fund</title>
+<meta name="description" content="social.fund — public giving, made simple. We're undergoing scheduled maintenance and will be back shortly." />
+
+<meta http-equiv="refresh" content="180" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-2: #F7F6F3;
+    --ink: #14171A;
+    --ink-soft: #4A5158;
+    --ink-muted: #8B9197;
+    --line: rgba(20, 23, 26, 0.10);
+    --line-strong: rgba(20, 23, 26, 0.16);
+    --accent: #E25E3E;
+    --accent-deep: #B8401F;
+    --accent-soft: #FCEFE9;
+    --green: #2F7D5B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .wash {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wash-1 { width: 520px; height: 520px; background: #FCE0D4; top: -200px; right: -140px; animation: drift1 20s ease-in-out infinite; }
+  .wash-2 { width: 420px; height: 420px; background: #E2EFE6; bottom: -160px; left: -120px; animation: drift2 24s ease-in-out infinite; }
+
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-40px, 30px); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -25px); }
+  }
+
+  .frame {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    animation: fadeUp 0.7s ease-out both;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  .logo-mark::before,
+  .logo-mark::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 5px;
+  }
+  .logo-mark::before { background: var(--accent); left: 0; }
+  .logo-mark::after  { background: var(--green); left: 10px; mix-blend-mode: multiply; }
+
+  .logo em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+  .logo-tagline {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-left: 12px;
+    margin-left: 4px;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px 7px 12px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(226, 94, 62, 0.22);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: relative;
+  }
+  .pulse::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    opacity: 0.8;
+    animation: pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.6); opacity: 0.9; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease-out both;
+  }
+  .eyebrow span { color: var(--accent); }
+
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 350;
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 32px;
+    animation: fadeUp 0.9s 0.2s ease-out both;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .lede {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 40px;
+    animation: fadeUp 1s 0.3s ease-out both;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 40px;
+    max-width: 540px;
+    animation: fadeUp 1.05s 0.4s ease-out both;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .meta-cell {
+    background: var(--bg);
+    padding: 18px 20px;
+  }
+  .meta-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .meta-value {
+    font-family: "Fraunces", serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .meta-value.green { color: var(--green); }
+
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeUp 1.1s 0.5s ease-out both;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-1px); background: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn-ghost:hover { background: var(--bg-2); border-color: var(--ink); }
+
+  .btn svg { width: 14px; height: 14px; }
+
+  .visual {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    animation: fadeUp 1.2s 0.4s ease-out both;
+  }
+  .visual-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .visual-inner svg { width: 100%; height: auto; max-width: 460px; }
+
+  .ring { transform-origin: center; animation: spin 60s linear infinite; }
+  .ring-2 { animation-duration: 80s; animation-direction: reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .bloom-petal { transform-origin: 200px 200px; animation: breathe 6s ease-in-out infinite; }
+  .bloom-petal.delay-1 { animation-delay: 0.5s; }
+  .bloom-petal.delay-2 { animation-delay: 1s; }
+  .bloom-petal.delay-3 { animation-delay: 1.5s; }
+  .bloom-petal.delay-4 { animation-delay: 2s; }
+  .bloom-petal.delay-5 { animation-delay: 2.5s; }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+
+  .visual-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-muted);
+    animation: fadeUp 1.3s 0.6s ease-out both;
+  }
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-quote {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-width: 300px;
+    text-align: right;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 880px) {
+    .frame { padding: 28px 24px; }
+    main { grid-template-columns: 1fr; gap: 56px; padding: 48px 0; }
+    .visual { max-width: 360px; margin: 0 auto; }
+    footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-quote { text-align: left; }
+    .meta-grid { max-width: 100%; }
+    .logo-tagline { display: none; }
+  }
+  @media (max-width: 520px) {
+    .frame { padding: 20px 18px; }
+    .logo { font-size: 18px; }
+    .status-pill { font-size: 10px; padding: 6px 10px 6px 8px; }
+    h1 { font-size: 44px; }
+    .lede { font-size: 16px; }
+    .footer-links { gap: 16px; flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wash wash-1"></div>
+<div class="wash wash-2"></div>
+
+<div class="frame">
+
+  <header>
+    <a href="/" class="logo" aria-label="social.fund — public giving">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>social<em>.fund</em></span>
+      <span class="logo-tagline">Public giving</span>
+    </a>
+    <div class="status-pill" role="status" aria-live="polite">
+      <span class="pulse" aria-hidden="true"></span>
+      <span>Brief pause</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="eyebrow">Notice — <span>public giving</span> is paused</div>
+
+      <h1>
+        Generosity, briefly<br />
+        on <em>hold.</em>
+      </h1>
+
+      <p class="lede">
+        social.fund is undergoing scheduled maintenance. Donations, campaigns,
+        and recipient payouts are safe — we're improving how publicly funded
+        giving works behind the scenes. Back online very soon.
+      </p>
+
+      <div class="meta-grid" role="list">
+        <div class="meta-cell" role="listitem">
+          <div class="meta-label">Status</div>
+          <div class="meta-value">In progress</div>
+        </div>
+        <div class="meta-cell" role="listitem">
+          <div class="meta-label">Estimated return</div>
+          <div class="meta-value" id="eta">~ 2 hours</div>
+        </div>
+        <div class="meta-cell" role="listitem">
+          <div class="meta-label">Reference</div>
+          <div class="meta-value">MNT-2026-05-10</div>
+        </div>
+        <div class="meta-cell" role="listitem">
+          <div class="meta-label">Donations</div>
+          <div class="meta-value green">Safe</div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a href="https://status.social.fund" class="btn btn-primary">
+          Live status
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="mailto:support@social.fund" class="btn btn-ghost">
+          Contact support
+        </a>
+      </div>
+    </section>
+
+    <aside class="visual" aria-hidden="true">
+      <div class="visual-inner">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+
+          <g class="ring">
+            <circle cx="200" cy="200" r="190" fill="none"
+                    stroke="#14171A" stroke-width="1"
+                    stroke-dasharray="1 8" opacity="0.28" />
+          </g>
+
+          <g class="ring ring-2">
+            <circle cx="200" cy="200" r="155" fill="none"
+                    stroke="#14171A" stroke-width="1" opacity="0.18" />
+            <g stroke="#14171A" stroke-width="1.4" opacity="0.32">
+              <line x1="200" y1="40" x2="200" y2="50" />
+              <line x1="360" y1="200" x2="350" y2="200" />
+              <line x1="200" y1="360" x2="200" y2="350" />
+              <line x1="40" y1="200" x2="50" y2="200" />
+            </g>
+          </g>
+
+          <g style="mix-blend-mode: multiply;">
+            <circle class="bloom-petal" cx="200" cy="140" r="62"
+                    fill="#FCEFE9" stroke="#E25E3E" stroke-width="1.2" />
+            <circle class="bloom-petal delay-1" cx="257" cy="181" r="62"
+                    fill="#FCEFE9" stroke="#E25E3E" stroke-width="1.2" />
+            <circle class="bloom-petal delay-2" cx="235" cy="248" r="62"
+                    fill="#FCEFE9" stroke="#E25E3E" stroke-width="1.2" />
+            <circle class="bloom-petal delay-3" cx="165" cy="248" r="62"
+                    fill="#FCEFE9" stroke="#E25E3E" stroke-width="1.2" />
+            <circle class="bloom-petal delay-4" cx="143" cy="181" r="62"
+                    fill="#FCEFE9" stroke="#E25E3E" stroke-width="1.2" />
+          </g>
+
+          <g style="mix-blend-mode: multiply;">
+            <circle class="bloom-petal delay-5" cx="200" cy="200" r="42"
+                    fill="#E2EFE6" stroke="#2F7D5B" stroke-width="1.4" />
+          </g>
+
+          <g transform="translate(200 200)">
+            <text x="0" y="2"
+                  text-anchor="middle" dominant-baseline="middle"
+                  fill="#14171A"
+                  font-family="Fraunces, serif"
+                  font-size="30"
+                  font-style="italic"
+                  font-weight="400">s.f</text>
+          </g>
+
+          <g fill="#E25E3E" opacity="0.6">
+            <circle cx="200" cy="78" r="2.5" />
+            <circle cx="313" cy="160" r="2.5" />
+            <circle cx="270" cy="293" r="2.5" />
+            <circle cx="130" cy="293" r="2.5" />
+            <circle cx="87" cy="160" r="2.5" />
+          </g>
+
+        </svg>
+      </div>
+      <div class="visual-caption">Fig. 01 — Many hands, one fund</div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <div>
+      <div class="footer-links">
+        <a href="https://status.social.fund">Status</a>
+        <a href="https://twitter.com/socialfund">Twitter</a>
+        <a href="mailto:support@social.fund">Email</a>
+      </div>
+      <div style="margin-top: 12px;">© 2026 social.fund — Public giving, made simple.</div>
+    </div>
+    <p class="footer-quote">
+      "No one has ever become poor by giving."
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var end = window.MAINTENANCE_END;
+    if (!end) return;
+    var endTime = new Date(end).getTime();
+    var node = document.getElementById("eta");
+    if (!node || isNaN(endTime)) return;
+
+    function tick() {
+      var diff = endTime - Date.now();
+      if (diff <= 0) { node.textContent = "Returning now"; return; }
+      var hrs = Math.floor(diff / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      node.textContent = hrs > 0 ? hrs + "h " + mins + "m" : mins + "m";
+    }
+    tick();
+    setInterval(tick, 30000);
+  })();
+</script>
+
+</body>
+</html>
